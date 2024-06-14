@@ -20,7 +20,7 @@ export class EcsStack extends Stack {
         super(scope, stackId);
 
         const vpc = Vpc.fromLookup(this, `ecs-vpc`, {
-            vpcName: `${this.account}`,
+            vpcName: `edonevpc`,
         });
 
         const privateSubnetAZ1Id = Fn.importValue('privateSubnet1');

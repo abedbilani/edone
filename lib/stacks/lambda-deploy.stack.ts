@@ -10,7 +10,7 @@ export class LambdaDeployStack extends Stack {
         super(scope, stackId);
 
         const vpc = Vpc.fromLookup(this, 'lambda-vpc', {
-            vpcName: `${this.account}`,
+            vpcName: `edonevpc`,
         });
 
         const securityGroupId = Fn.importValue(`TO_CHANGEServiceSecurityGroup`);

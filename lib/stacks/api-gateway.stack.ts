@@ -25,7 +25,7 @@ export default class ApiGatewayStack extends Stack {
         const privateSubnetAZ1Id = Fn.importValue('privateSubnet1');
         const privateSubnetAZ2Id = Fn.importValue('privateSubnet2');
         const vpc = Vpc.fromLookup(this, 'TO_CHANGE-vpc', {
-            vpcName: `${this.account}`,
+            vpcName: `edonevpc`,
         });
 
         const securityGroup = new SecurityGroup(this, 'VpcLinkSecurityGroup', {

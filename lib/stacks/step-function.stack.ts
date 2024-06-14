@@ -96,7 +96,7 @@ export class StepFunctionStack extends Stack {
         });
 
         const vpc: IVpc = Vpc.fromLookup(this, 'TO_CHANGE-vpc', {
-            vpcName: `${this.account}`,
+            vpcName: `edonevpc`,
         });
 
         const cluster = Cluster.fromClusterAttributes(this, 'TO_CHANGE-cluster-import', {
