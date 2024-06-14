@@ -24,7 +24,6 @@ export class CdkStack extends Stack {
                     authentication: SecretValue.secretsManager(oauthTokenName),
                 }),
                 commands: [
-                    'cd cdk', // Change to the cdk directory
                     'npm ci',
                     'npm run build',
                     'npx cdk synth',
