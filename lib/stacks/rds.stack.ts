@@ -74,7 +74,7 @@ export class RdsStack extends Stack {
             credentials: Credentials.fromGeneratedSecret('clusteradmin', {
                 secretName: 'rds-credentials',
             }),
-            writer: ClusterInstance.provisioned(`${this.account}-writer`, {
+            writer: ClusterInstance.provisioned(`writer`, {
                 publiclyAccessible: false,
                 instanceType: InstanceType.of(InstanceClass.T3, InstanceSize.MEDIUM),
             }),
@@ -86,8 +86,8 @@ export class RdsStack extends Stack {
             vpcSubnets: {
                 subnets: [privateSubnetAZ1, privateSubnetAZ2],
             },
-            clusterIdentifier: `${this.account}-cluster`,
-            instanceIdentifierBase: `${this.account}-instance`,
+            clusterIdentifier: `cluster`,
+            instanceIdentifierBase: `instance`,
             securityGroups: sgs,
         });
 
