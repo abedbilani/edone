@@ -7,7 +7,7 @@ export class VpcStack extends Stack {
     constructor(scope: Construct, stackId: string) {
         super(scope, stackId);
 
-        const vpc = new Vpc(this, `${this.account}-vpc`, {
+        const vpc = new Vpc(this, `vpc`, {
             vpcName: `${this.account}`,
             ipAddresses: IpAddresses.cidr('10.0.0.0/16'),
             natGateways: 1,

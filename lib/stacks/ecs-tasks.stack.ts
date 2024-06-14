@@ -33,7 +33,7 @@ export class EcsStack extends Stack {
             subnetId: privateSubnetAZ2Id,
         });
 
-        const cluster = new Cluster(this, `${this.account}-cluster`, {
+        const cluster = new Cluster(this, `cluster`, {
             clusterName: `${this.account}-cluster`,
             vpc,
             containerInsights: true,
