@@ -10,6 +10,6 @@ const env = {
 
 const app = new cdk.App();
 
-new CdkStack(app, `CdkStack`, {
+new CdkStack(app, `CdkStack1`, {
     env,
 },);
