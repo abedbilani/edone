@@ -40,14 +40,14 @@ export class CdkStack extends Stack {
         cdkPipeline.addStage(new FirstStage(this, 'FirstStage', { env: props?.env }));
 
         // deploy RDS
-        cdkPipeline.addStage(new SecondStage(this, 'SecondStage', { env: props?.env }));
-
-        // deploy ECS service
-        // deploy lambda functions
-        cdkPipeline.addStage(new ThirdStage(this, 'ThirdStage', { env: props?.env }));
-
-        // deploy step function
-        // create api gateway
-        cdkPipeline.addStage(new FourthStage(this, 'FourthStage', { env: props?.env }));
+        // cdkPipeline.addStage(new SecondStage(this, 'SecondStage', { env: props?.env }));
+        //
+        // // deploy ECS service
+        // // deploy lambda functions
+        // cdkPipeline.addStage(new ThirdStage(this, 'ThirdStage', { env: props?.env }));
+        //
+        // // deploy step function
+        // // create api gateway
+        // cdkPipeline.addStage(new FourthStage(this, 'FourthStage', { env: props?.env }));
     }
 }
