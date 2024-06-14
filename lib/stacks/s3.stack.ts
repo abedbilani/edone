@@ -31,7 +31,7 @@ export default class S3Stack extends Stack {
 
         const siteCloudfront = new Distribution(
             this,
-            `${this.account}SiteCloudfront`,
+            `SiteCloudfront`,
             {
                 defaultBehavior: {
                     origin: new S3Origin(bucket),
