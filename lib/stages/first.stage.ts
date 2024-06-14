@@ -7,8 +7,8 @@ import SageMakerStack from '../stacks/sagemaker.stack';
 export class FirstStage extends Stage {
     constructor(scope: Construct, id: string, props: StackProps) {
         super(scope, id, props);
-        new VpcStack(this, 'VpcStack');
-        new S3Stack(this, 'S3Stack');
-        new SageMakerStack(this, 'SageMakerStack');
+        // new VpcStack(this, 'VpcStack');
+        // new S3Stack(this, 'S3Stack');
+        // new SageMakerStack(this, 'SageMakerStack');
     }
 }
