@@ -28,6 +28,7 @@ export class CdkStack extends Stack {
                     'npm run build',
                     'npx cdk synth',
                     'ls -lh',
+                    'pwd', // Print working directory
                 ],
 
             }),
