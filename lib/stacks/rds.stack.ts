@@ -67,7 +67,7 @@ export class RdsStack extends Stack {
         });
 
 
-       const db:DatabaseCluster = new DatabaseCluster(this, `${this.account}-database`, {
+       const db:DatabaseCluster = new DatabaseCluster(this, `database`, {
             engine: DatabaseClusterEngine.auroraPostgres({
                 version: AuroraPostgresEngineVersion.VER_16_1,
             }),

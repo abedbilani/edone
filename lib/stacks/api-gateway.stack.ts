@@ -33,7 +33,7 @@ export default class ApiGatewayStack extends Stack {
             securityGroupName: 'VpcLinkSecurityGroup',
             vpc,
         });
-        const vpcLink = new CfnVpcLink(this, `${this.account}VPCLink`, {
+        const vpcLink = new CfnVpcLink(this, `VPCLink`, {
             name: `${this.account}-link`,
             subnetIds: [privateSubnetAZ1Id, privateSubnetAZ2Id],
             securityGroupIds: [securityGroup.securityGroupId],

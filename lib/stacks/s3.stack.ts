@@ -22,7 +22,7 @@ export default class S3Stack extends Stack {
         }];
 
 
-        const bucket: Bucket = new Bucket(this, `${this.account}_SiteBucket`, {
+        const bucket: Bucket = new Bucket(this, `SiteBucket`, {
             bucketName: `${this.account}-site`,
             cors,
             blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
