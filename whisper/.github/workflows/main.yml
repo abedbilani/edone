@@ -1,0 +1,43 @@
+name: 'Deploy whisper-x-models'
+
+on:
+  push:
+    branches: ['main', 'prod']
+
+jobs:
+  deploy-web:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+      id-token: write
+    environment: ${{ github.ref == 'refs/heads/prod' && 'prod' || 'dev' }}
+    name: 'Deploy whisper-x'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.ROLE_NAME }}
+          aws-region: ${{ vars.REGION }}
+
+      - name: Get Hugging Face Library
+        run: pip install huggingface_hub
+
+      - name: execute script
+        run: python main.py
+
+      - name: execute inference
+        run: python inference.py
+
+      - name: Upload files to S3
+        run: |
+          aws s3 cp ./modelv1.tar.gz s3://whisper-x-dev/
