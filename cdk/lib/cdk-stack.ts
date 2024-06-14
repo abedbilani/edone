@@ -20,7 +20,9 @@ export class CdkStack extends Stack {
         const cdkPipeline = new CodePipeline(this, 'TO_CHANGEPipeline', {
             pipelineName: 'TO_CHANGE-cdk-pipeline',
             synth: new ShellStep('Synth', {
-                input: CodePipelineSource.gitHub(repositoryName, branchName, {}),
+                input: CodePipelineSource.gitHub(repositoryName, branchName,{
+                    authentication: SecretValue.secretsManager(oauthTokenName),
+                }),
                 commands: [
                     'npm ci',
                     'npm run build',

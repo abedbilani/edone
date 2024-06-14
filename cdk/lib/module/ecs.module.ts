@@ -62,7 +62,7 @@ export class EcsModule {
 
         const { cpu, memoryLimitMiB, imageName, port } = taskConfiguration;
 
-        const dbSecret = Secret.fromSecretNameV2(scope, 'db-secret', 'TO_CHANGE-rds');
+        const dbSecret = Secret.fromSecretNameV2(scope, 'db-secret', 'rds-credentials');
         const username = dbSecret.secretValueFromJson('username').unsafeUnwrap();
         const password = dbSecret.secretValueFromJson('password').unsafeUnwrap();
         const host = dbSecret.secretValueFromJson('host').unsafeUnwrap();
